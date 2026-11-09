@@ -1,0 +1,363 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap');
+
+:root {
+    --bg: #090b1d;
+    --panel: #11152c;
+    --line: #252c50;
+    --cyan: #54f4e8;
+    --pink: #ff4e9b;
+    --text: #f4f6ff;
+    --muted: #969dbd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+.background-glow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 15% 15%, #39216a55, transparent 40%),
+        radial-gradient(ellipse at 85% 70%, #005c6550, transparent 42%);
+}
+
+.shell {
+    position: relative;
+    width: min(960px, calc(100% - 32px));
+    margin: auto;
+    padding: 24px 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff18;
+    padding-bottom: 18px;
+}
+
+.logo {
+    font: 800 25px Orbitron;
+    color: var(--cyan);
+}
+
+.top-stats {
+    display: flex;
+    gap: 22px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.top-stats b {
+    color: white;
+    font-size: 14px;
+}
+
+.hero {
+    text-align: center;
+    padding: 38px 0 28px;
+}
+
+.eyebrow,
+.tiny-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--pink);
+    border-radius: 50%;
+    margin-right: 7px;
+    box-shadow: 0 0 12px var(--pink);
+}
+
+h1 {
+    font: 800 clamp(34px, 7vw, 66px)/1.03 Orbitron;
+    margin: 17px 0 12px;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 28px #54f4e844;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.game-card,
+.mini-card {
+    background: linear-gradient(145deg, #171c39ee, #0e1227f2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: 0 18px 60px #0005;
+}
+
+.game-card {
+    padding: 23px;
+}
+
+.card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-head h2 {
+    font-size: 17px;
+}
+
+.level-tag {
+    border: 1px solid #54f4e855;
+    color: var(--cyan);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.progress-info b {
+    color: var(--cyan);
+    font: 600 13px Orbitron;
+}
+
+.progress-track {
+    height: 11px;
+    background: #080b1a;
+    border: 1px solid #252c50;
+    border-radius: 20px;
+    margin-top: 9px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--cyan), #7c79ff, var(--pink));
+    border-radius: 20px;
+    box-shadow: 0 0 15px #54f4e877;
+    transition: width .25s;
+}
+
+.progress-note {
+    color: #777f9f;
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.arena {
+    height: 230px;
+    margin-top: 22px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 13px;
+    border: 1px solid #323b68;
+    background: linear-gradient(180deg, #151c3d, #0b1027);
+    display: flex;
+    align-items: flex-end;
+}
+
+.arena:after {
+    content: "";
+    position: absolute;
+    bottom: 31px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan), #7c79ff, transparent);
+}
+
+.arena-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(#ffffff08 1px, transparent 1px),
+        linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+
+    background-size: 32px 32px;
+}
+
+.player {
+    position: absolute;
+    z-index: 2;
+    left: 14%;
+    bottom: 32px;
+    font-size: 39px;
+    filter: drop-shadow(0 0 12px #54f4e8);
+    transition: bottom .16s;
+}
+
+.obstacle {
+    position: absolute;
+    z-index: 2;
+    right: 12%;
+    bottom: 32px;
+    font-size: 42px;
+    filter: drop-shadow(0 0 12px #ff4e9b);
+    animation: threat 1.5s ease-in-out infinite;
+}
+
+.floating-word {
+    position: absolute;
+    top: 22px;
+    right: 7%;
+    font: 700 11px Orbitron;
+    letter-spacing: 3px;
+    color: #ffffff55;
+    animation: float 4s ease-in-out infinite;
+}
+
+.arena-caption {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #8992b8;
+    z-index: 3;
+}
+
+@keyframes threat {
+    50% {
+        transform: translateY(-9px) rotate(5deg);
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(9px);
+        opacity: .3;
+    }
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.controls button {
+    border: 0;
+    border-radius: 9px;
+    padding: 14px 18px;
+    font: 700 11px Orbitron;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform .15s, filter .15s;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.15);
+}
+
+.main-button {
+    flex: 1;
+    background: linear-gradient(100deg, var(--cyan), #6fa7ff);
+    color: #07101e;
+}
+
+.secondary-button {
+    background: #222949;
+    color: #e8ebff;
+    border: 1px solid #3a456e !important;
+}
+
+.message {
+    min-height: 20px;
+    margin-top: 13px;
+    text-align: center;
+    color: #aeb6d8;
+    font-size: 12px;
+}
+
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.mini-card {
+    padding: 18px;
+}
+
+.big-number {
+    font: 700 25px Orbitron;
+    color: var(--pink);
+    margin: 12px 0 5px;
+}
+
+.quote {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 12px 0 5px;
+}
+
+.mini-card p {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+footer {
+    text-align: center;
+    color: #555e80;
+    font-size: 9px;
+    letter-spacing: 2px;
+    margin-top: 22px;
+}
+
+@media(max-width: 600px) {
+    .top-stats {
+        gap: 9px;
+        font-size: 9px;
+    }
+
+    .game-card {
+        padding: 15px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .arena {
+        height: 200px;
+    }
+}

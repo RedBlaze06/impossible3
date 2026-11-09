@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b1d">
+    <title>INFINI - Le jeu sans fin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-glow"></div>
+
+<main class="shell">
+
+    <header class="topbar">
+        <div class="logo">∞ INFINI™</div>
+
+        <div class="top-stats">
+            <span>ÉTAGE <b id="level">1</b></span>
+            <span>PIÈCES <b id="coins">0</b></span>
+            <span>ÉCHECS <b id="fails">0</b></span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="eyebrow">
+            <span class="pulse"></span>
+            UNE EXPÉRIENCE INUTILEMENT SANS FIN
+        </div>
+
+        <h1>LE JEU QUI<br><span>NE FINIT JAMAIS.</span></h1>
+
+        <p class="subtitle">
+            Atteins le sommet. Il n'existe pas.
+            Bonne chance quand même.
+        </p>
+    </section>
+
+    <section class="game-card">
+
+        <div class="card-head">
+            <div>
+                <div class="tiny-label">MISSION ACTUELLE</div>
+                <h2 id="mission">Trouve la sortie.</h2>
+            </div>
+
+            <div class="level-tag">
+                NIVEAU <b id="levelTag">1</b>
+            </div>
+        </div>
+
+        <div class="progress-info">
+            <span>PROGRESSION VERS LA FIN</span>
+            <b id="progressText">0.00%</b>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="progress-note" id="progressNote">
+            La fin est à seulement… quelque part.
+        </div>
+
+        <div class="arena" id="arena">
+
+            <div class="arena-grid"></div>
+
+            <div class="floating-word" id="floatingWord">
+                COURAGE.
+            </div>
+
+            <div class="obstacle" id="obstacle">🧱</div>
+
+            <div class="player" id="player">🧍</div>
+
+            <div class="arena-caption" id="arenaCaption">
+                ESPACE / CLIC POUR SAUTER
+            </div>
+
+        </div>
+
+        <div class="controls">
+
+            <button class="main-button" id="actionButton">
+                SAUTER ↑
+            </button>
+
+            <button class="secondary-button" id="coinButton">
+                RÉCLAMER 1 PIÈCE 🪙
+            </button>
+
+        </div>
+
+        <div class="message" id="message">
+            Un mur se trouve entre toi et tes rêves.
+        </div>
+
+    </section>
+
+    <section class="bottom-grid">
+
+        <div class="mini-card">
+            <div class="tiny-label">OBJECTIF ABSURDE</div>
+
+            <div class="big-number" id="target">
+                1 000 000
+            </div>
+
+            <p>
+                Points pour débloquer le niveau suivant.
+                Le nombre augmente à chaque niveau.
+            </p>
+        </div>
+
+        <div class="mini-card">
+            <div class="tiny-label">SAGESSE DU JOUR</div>
+
+            <div class="quote" id="quote">
+                « Si tu ne peux pas gagner,
+                augmente la difficulté. »
+            </div>
+
+            <p>
+                Conseil certifié par absolument personne.
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        FAIT AVEC 0% DE BON SENS · SAUVEGARDE AUTOMATIQUE
+    </footer>
+
+</main>
+
+<script src="game.js"></script>
+
+</body>
+</html>
